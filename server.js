@@ -14,6 +14,10 @@ class Server {
             console.log('We are listen port: ' + serverPort);
         });
 
+        server.get('/bot/get', (req, res) => {
+            res.send("eorks");
+        })
+
         server.post('/bot', (req, res) => {
             console.log(JSON.stringify(req.body));
             bot.processUpdate(req.body);
