@@ -7,7 +7,7 @@ const TOKEN = config.token;
 const openKeyboard = {
     reply_markup: {
         keyboard: [
-            ["Aut", "Neg"],
+            ["Test", "Test_2"],
         ],
         one_time_keyboard: true,
         resize_keyboard: true,
