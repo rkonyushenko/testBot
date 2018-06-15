@@ -10,7 +10,7 @@ class Server {
         server.use(bodyParser.urlencoded({ extended: false }));
         server.use(bodyParser.json());
 
-        server.listen(config.port, () => {
+        server.listen(process.env.PORT || 5000, () => {
             console.log('We are listen port: ' + config.port);
         });
 
