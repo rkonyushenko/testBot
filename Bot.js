@@ -65,9 +65,9 @@ eventEmitter.on('Пиво', () => {
     // })
 });
 
-bot.on('callback_query', function onCallbackQuery(callbackQuery) {
-    console.log("callback_query is " + JSON.stringify(callbackQuery));
-    eventEmitter.emit(callbackQuery.data);
-    eventEmitter.emit(callbackQuery.text)
+bot.on('message',  msg => {
+    console.log("callback_query is " + JSON.stringify(msg));
+    eventEmitter.emit(msg.data);
+    eventEmitter.emit(msg.text)
 
 });
