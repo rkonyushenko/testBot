@@ -1,6 +1,7 @@
 const Server = require('./server');
 const config = require('./config.json');
 
+const EventEmitter = require('events');
 const TelegramBot = require('node-telegram-bot-api');
 const TOKEN = config.token;
 
@@ -14,6 +15,7 @@ const openKeyboard = {
     },
 };
 
+const Emitter = new EventEmitter();
 const bot = new TelegramBot(TOKEN);
 Server.createServer(bot);
 bot.setWebHook(`${config.url}/bot`);
@@ -29,8 +31,8 @@ bot.on('message', msg => {
     const {chat: {username}} = msg;
     const {text} = msg;
     console.log(JSON.stringify(msg));
-    if (text === '/start') {
+    Emitter.on('/start', () => {
         bot.sendMessage(id, 'Привіт, я алкобот, я ще тупий, і мою базу буде піднімать Влад, але ти можеш мені писать.)')
         bot.sendMessage(id, 'Може ти хочеш щось затестить?', openKeyboard)
-    } else {}
+    })
 });
