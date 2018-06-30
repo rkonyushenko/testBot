@@ -3,7 +3,7 @@ const config = require('./config.json');
 const botHelper = require('./bot/BotClass');
 const db = require('./Mongo')
 
-const EventEmitter = require('events');
+const Emitter = require('events');
 const TelegramBot = require('node-telegram-bot-api');
 const TOKEN = config.token;
 
@@ -17,6 +17,7 @@ const openKeyboard = {
     },
 };
 
+const eventEmitter = new Emitter();
 const bot = new TelegramBot(TOKEN);
 Server.createServer(bot);
 bot.setWebHook(`${config.url}/bot`);
@@ -122,8 +123,7 @@ bot.on('message', msg => {
     });
 
 });
-const Emitter = require('events');
-const eventEmitter = new Emitter();
+
 
 
 
