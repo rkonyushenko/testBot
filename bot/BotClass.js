@@ -41,13 +41,12 @@ class BotHelper {
                 }];
 
             case 'Світле':
-
                     const condition = {isLight: true};
                     db.selectOne(condition)
                         .then(data => {
                             console.log('before return');
                             console.log(JSON.stringify(data));
-                          return [{text: JSON.stringify(data)}]
+                          return [{text: JSON.stringify(data['name'])}]
                         });
 
             default:
