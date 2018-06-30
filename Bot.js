@@ -38,6 +38,11 @@ bot.on('message', msg => {
 
         })
     }
+});
+const Emitter = require('events');
+const eventEmitter = new Emitter();
 
-
+bot.on('callback_query', function onCallbackQuery(callbackQuery) {
+    eventEmitter.emit(callbackQuery.data);
+    bot.answerCallbackQuery(callbackQuery.id, "Hi", false);
 });
