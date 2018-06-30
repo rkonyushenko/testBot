@@ -70,7 +70,11 @@ class BotHelper {
                     db.selectOne(condition)
                         .then(result => {
                             console.log([{text: `Спробуй ${result.name}`}]);
-                            resolve ([{text: `Спробуй ${result.name}  ${result.description}`}])
+                            resolve ([{text: `Спробуй ${result.name}  ${result.description}`}, {reply_markup: {
+                                    inline_keyboard: [
+                                        [{text: 'Next', callback_data: 'my_fancy_event_3'}]
+                                    ]
+                                }}])
                         })
                         .catch(err => reject(err));
                 });
