@@ -24,7 +24,6 @@ bot.setWebHook(`${config.url}/bot`);
 bot.on('message', msg => {
     const {chat: {id}} = msg;
     const {chat: {username}} = msg;
-    const {message: {message_id}} = msg;
     const {text} = msg;
     console.log(JSON.stringify(msg));
     if (text === '/start') {
