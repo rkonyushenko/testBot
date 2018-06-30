@@ -14,13 +14,12 @@ class MongoDB {
                 collection.find(condition).toArray( (err, result) => {
                     if (err) throw err;
                     console.log(result);
-                    resolve(result)
-                });
-                     // .then(result => {
-                     //     console.log(JSON.stringify(result));
-                     //     resolve(result)
-                     // })
-                     // .catch(err => reject(err))
+                    return result
+                })
+                    .then(result => {
+                        console.log("then " + result);
+                        resolve(result)
+                    })
             })
         })
     }
