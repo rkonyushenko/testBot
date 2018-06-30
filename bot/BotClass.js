@@ -41,13 +41,15 @@ class BotHelper {
                 }];
 
             case 'Світле':
+                return new Promise((resolve, reject) => {
                     const condition = {isLight: true};
                     db.selectOne(condition)
                         .then(result => {
-                            console.log(JSON.stringify(result))
-                            return [{text: JSON.stringify(result) }]
-                        });
-                    break;
+                            console.log(JSON.stringify(result));
+                            resolve([{text: JSON.stringify(result)}])
+                        })
+                        .catch(err => reject(err));
+                });
 
             default:
                 return [{text: 'оххх, давай почнемо з початку'}, {
