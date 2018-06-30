@@ -1,4 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
+const json = require('./bot/dataDb.json')
 
 const uri = `mongodb://lemo:qwerty123@ds161610.mlab.com:61610/botdb_alcho`;
 
@@ -8,8 +9,11 @@ class MongoDB {
             MongoClient.connect(uri, function(err, client) {
                 if (err) throw err;
                const collection = client.db("botdb_alcho").collection('alchoCollection');
-               collection.insert({key: 'value'});
-               console.log(collection)
+               for (let obj in json){
+                   console.log(json[obj])
+            // collection.insert(json[obj]);
+            //    console.log(collection)   
+               }
 
             });
 
