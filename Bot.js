@@ -54,15 +54,18 @@ const Emitter = require('events');
 const eventEmitter = new Emitter();
 
 eventEmitter.on('Пиво', () => {
-    console.log('dsnfkjdsnfkdsajnfpsajnfdskjnfkdsnfkdsjnfkjdsnfkjdsanfkjdsanfdskjfndskajfnkjdsa')
-    // return new Promise((resolve, reject) => {
-    //     db.selectNext({type: 'ale'}, true)
-    //         .then(result => {
-    //             bot.editMessageText(id, JSON.stringify(result[0]['text'], result[1]))
-    //             resolve(result)
-    //         })
-    //         .catch(err => reject(err))
-    // })
+    return new Promise((resolve, reject) => {
+        resolve([{text: 'мммм, півоосік)) вибирай'},
+            {
+                reply_markup: {
+                    keyboard: [
+                        ["Світле", "Темне"],
+                    ],
+                    one_time_keyboard: true,
+                    resize_keyboard: true
+                }
+            }]);
+    });
 });
 
 bot.on('message',  msg => {

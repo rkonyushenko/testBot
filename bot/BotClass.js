@@ -29,19 +29,7 @@ class BotHelper {
                     }
                 }];
 
-            case 'Пиво':
-                return new Promise((resolve, reject) => {
-                    resolve([{text: 'мммм, півоосік)) вибирай'},
-                        {
-                            reply_markup: {
-                                keyboard: [
-                                    ["Світле", "Темне"],
-                                ],
-                                one_time_keyboard: true,
-                                resize_keyboard: true
-                            }
-                        }]);
-                });
+
 
             case 'Світле':
                 return new Promise((resolve, reject) => {
