@@ -1,3 +1,3 @@
 const db = require('./Mongo');
 
-db.selectOne({isLight: true});
+db.selectOne({isDark: true});

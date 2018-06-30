@@ -9,16 +9,16 @@ class MongoDB {
     selectOne(condition) {
         return new Promise((resolve, reject) => {
             let data = {};
-            MongoClient.connect(uri, function (err, client) {
+            MongoClient.connect(uri,  (err, client) => {
                 if (err) throw err;
                 const collection = client.db("botdb_alcho").collection('alchoCollection');
-                collection.find(condition).toArray((result, err) => {
+                collection.find(condition).toArray((err, result) => {
                     if (err) throw err;
-                    data = result;
+                    console.log(result[0]);
+                    resolve(result[0])
                 });
-                console.log(JSON.stringify(data))
             });
-            resolve(data)
+
         })
     }
 }
