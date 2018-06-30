@@ -46,7 +46,8 @@ class BotHelper {
                         .then(data => {
                             console.log('before return');
                             console.log(JSON.stringify(data.name));
-                          return [{text: JSON.stringify(data.name)}]
+                            const result = JSON.parse(data)
+                          return [{text: result.name}]
                         });
 
             default:
