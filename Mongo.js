@@ -12,13 +12,13 @@ class MongoDB {
             MongoClient.connect(uri, function (err, client) {
                 if (err) throw err;
                 const collection = client.db("botdb_alcho").collection('alchoCollection');
-                collection.find(condition).toArray( (err, result) => {
+                collection.find(condition).toArray((err, result) => {
                     if (err) throw err;
                     console.log(result);
                     data = result;
                 })
             });
-            resolve(data)
+            resolve(data[0])
         })
     }
 }
