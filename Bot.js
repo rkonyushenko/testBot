@@ -66,7 +66,7 @@ eventEmitter.on('Пиво', () => {
 });
 
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
-    console.log(JSON.stringify(callbackQuery));
+    console.log("callback_query is " + JSON.stringify(callbackQuery));
     eventEmitter.emit(callbackQuery.data);
     eventEmitter.emit(callbackQuery.text)
 
