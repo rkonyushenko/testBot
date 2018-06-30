@@ -8,7 +8,7 @@
 //             MongoClient.connect(uri, function(err, client) {
 //                 if (err) throw err;
 //                const collection = client.db("botdb_alcho").collection('alchoCollection');
-//                collection.insert({key: 'value'})
+//                collection.insert({key: 'value'})418234096
 //                console.log(collection)
 //
 //             });

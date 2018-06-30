@@ -21,5 +21,10 @@ bot.setWebHook(`${config.url}/bot`);
 bot.on('message', msg => {
     const {chat: {id}} = msg;
     console.log(JSON.stringify(msg));
-    bot.sendMessage(id, `${msg.from.first_name}, досить катать в свою доту, краще розробляй мене`);
+    if (msg.chat.id === 418234096){
+        bot.sendMessage(id, `${msg.from.first_name}, давай загранку робить, заїбав!!!`);
+    } else {
+        bot.sendMessage(id, `${msg.from.first_name}, хвате катать в доту, давай загранку роби!`);
+    }
+
 });
