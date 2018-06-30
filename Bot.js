@@ -49,22 +49,24 @@ bot.on('message', msg => {
                 .catch(err => reject(err))
         })
     });
+
+    eventEmitter.on('Пиво', () => {
+        const keys = {
+            reply_markup: {
+                keyboard: [
+                    ["Світле", "Темне"],
+                ],
+                one_time_keyboard: true,
+                resize_keyboard: true
+            }
+        };
+        bot.sendMessage(id, 'ммм, півос))) вибирай)', keys)
+    });
 });
 const Emitter = require('events');
 const eventEmitter = new Emitter();
 
-eventEmitter.on('Пиво', () => {
-        const keys = {
-                reply_markup: {
-                    keyboard: [
-                        ["Світле", "Темне"],
-                    ],
-                    one_time_keyboard: true,
-                    resize_keyboard: true
-                }
-            };
-        bot.sendMessage(id, 'ммм, півос))) вибирай)', keys)
-});
+
 
 bot.on('message',  msg => {
     console.log("callback_query is " + JSON.stringify(msg));
