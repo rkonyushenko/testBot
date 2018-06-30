@@ -19,9 +19,9 @@ Server.createServer(bot);
 bot.setWebHook(`${config.url}/bot`);
 
 bot.on('message', msg => {
-    const {chat: {id}} = msg
-    console.log(JSON.stringify(msg))
-    bot.sendMessage(id, msg.from.first_name,openKeyboard);
+    const {chat: {id}} = msg;
+    console.log(JSON.stringify(msg));
+    bot.sendMessage(id, `${msg.from.first_name}, досить катать в свою доту, краще розробляй мене`,openKeyboard);
     if(msg.text === 'Aut') {
         console.log('!!!!!!!!!!!!!')
     }
