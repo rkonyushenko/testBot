@@ -15,10 +15,10 @@ class MongoDB {
                 collection.find(condition).toArray((err, result) => {
                     if (err) throw err;
                     console.log(result);
-                    data = result;
+                    data = result[0];
                 })
             });
-            resolve(data[0])
+            resolve(data)
         })
     }
 }
