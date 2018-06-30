@@ -32,7 +32,7 @@ bot.on('message', msg => {
         return new Promise((resolve, reject) => {
             botHelper.checkButtonPressed(text)
                 .then(result => {
-                    bot.sendMessage(id, result[0]['text'], result[1]);
+                    bot.sendMessage(id, JSON.stringify(result[0]['text']), result[1]);
                 })
                 .catch(err => reject(err))
 
