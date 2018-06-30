@@ -53,10 +53,21 @@ bot.on('message', msg => {
 const Emitter = require('events');
 const eventEmitter = new Emitter();
 
-
+eventEmitter.on('Пиво', () => {
+    console.log('dsnfkjdsnfkdsajnfpsajnfdskjnfkdsnfkdsjnfkjdsnfkjdsanfkjdsanfdskjfndskajfnkjdsa')
+    // return new Promise((resolve, reject) => {
+    //     db.selectNext({type: 'ale'}, true)
+    //         .then(result => {
+    //             bot.editMessageText(id, JSON.stringify(result[0]['text'], result[1]))
+    //             resolve(result)
+    //         })
+    //         .catch(err => reject(err))
+    // })
+});
 
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     console.log(JSON.stringify(callbackQuery));
     eventEmitter.emit(callbackQuery.data);
+    eventEmitter.emit(callbackQuery.text)
 
 });
