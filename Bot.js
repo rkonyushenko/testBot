@@ -39,19 +39,21 @@ bot.on('message', msg => {
 
         })
     }
+    eventEmitter.on('next', () => {
+        return new Promise((resolve, reject) => {
+            db.selectNext({type: 'ale'}, true)
+                .then(result => {
+                    bot.editMessageText(id, JSON.stringify(result[0]['text'], result[1]))
+                    resolve(result)
+                })
+                .catch(err => reject(err))
+        })
+    });
 });
 const Emitter = require('events');
 const eventEmitter = new Emitter();
 
-eventEmitter.on('next', () => {
-    return new Promise((resolve, reject) => {
-        db.selectNext({type: 'ale'}, true)
-            .then(result => {
-                resolve(result)
-            })
-            .catch(err => reject(err))
-    })
-});
+
 
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     console.log(JSON.stringify(callbackQuery));

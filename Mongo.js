@@ -28,7 +28,6 @@ class MongoDB {
             if (isNext){
                 index++
             } else {
-                index
             }
             MongoClient.connect(uri,  (err, client) => {
                 if (err) throw err;
