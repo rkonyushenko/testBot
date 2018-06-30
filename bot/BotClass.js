@@ -41,7 +41,12 @@ class BotHelper {
                 }];
 
             case 'Світле':
-                return [{text: `${db.selectOne()}`}]
+                db.selectOne()
+                    .then(data => {
+                      return JSON.stringify(data)
+                    })
+                    .catch(error => console.log(error))
+                break;
 
             default:
                 return [{text: 'оххх, давай почнемо з початку'}, {
