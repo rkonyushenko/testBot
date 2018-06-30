@@ -13,6 +13,7 @@ class MongoDB {
                 const collection = client.db("botdb_alcho").collection('alchoCollection');
                 collection.find(condition).toArray( (err, result) => {
                     if (err) throw err;
+                    console.log(result);
                     resolve(result)
                 });
                      // .then(result => {
