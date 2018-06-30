@@ -28,7 +28,7 @@ bot.on('message', msg => {
     } else if (username === 'V_Yarosh') {
         bot.sendMessage(id, `${msg.from.first_name}, хвате катать в доту, давай загранку роби!`);
     } else {
-        bot.sendMessage(id, `Півос?`)
+        bot.sendMessage(id, `Півос?`, openKeyboard);
         if (msg.text === 'Нахуй пішов') {
             bot.sendSticker(id, 'CAADAgADOAADX8p-CzLiVfbJsCagAg')
         }
