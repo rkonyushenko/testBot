@@ -45,8 +45,8 @@ class BotHelper {
                     const condition = {isLight: true};
                     db.selectOne(condition)
                         .then(result => {
-                            console.log([{text: result.name}]);
-                            resolve([{text: result.name}])
+                            console.log([{text: `Спробуй ${result.name}`}]);
+                            resolve([{text: `Спробуй ${result.name}`}])
                         })
                         .catch(err => reject(err));
                 });
