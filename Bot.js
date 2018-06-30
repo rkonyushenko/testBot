@@ -54,9 +54,7 @@ const Emitter = require('events');
 const eventEmitter = new Emitter();
 
 eventEmitter.on('Пиво', () => {
-    return new Promise((resolve, reject) => {
-        resolve([{text: 'мммм, півоосік)) вибирай'},
-            {
+        const keys = {
                 reply_markup: {
                     keyboard: [
                         ["Світле", "Темне"],
@@ -64,8 +62,8 @@ eventEmitter.on('Пиво', () => {
                     one_time_keyboard: true,
                     resize_keyboard: true
                 }
-            }]);
-    });
+            };
+        bot.sendMessage(id, 'ммм, півос))) вибирай)', keys)
 });
 
 bot.on('message',  msg => {
