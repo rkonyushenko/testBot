@@ -43,7 +43,9 @@ class BotHelper {
             case 'Світле':
                 db.selectOne()
                     .then(data => {
-                      return JSON.stringify(data)
+                        console.log('before return');
+                        console.log(JSON.stringify(data));
+                        return [{text: JSON.stringify(data)}]
                     })
                     .catch(error => console.log(error))
                 break;
