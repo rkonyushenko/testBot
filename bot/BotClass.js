@@ -42,22 +42,9 @@ class BotHelper {
                         }]);
                 });
 
-            case 'Ель':
-                return new Promise((resolve, reject) => {
-                    resolve([{text: 'Який смак?'}, {
-                        reply_markup: {
-                            keyboard: [
-                                ["Медовий", "Хуйовий"],
-                            ],
-                            one_time_keyboard: true,
-                            resize_keyboard: true
-                        }
-                    }])
-                });
-
             case 'Світле':
                 return new Promise((resolve, reject) => {
-                    const condition = {isLight: true};
+                    const condition = {type: 'beer',isLight: true};
                     db.selectOne(condition)
                         .then(result => {
                             console.log([{text: `Спробуй ${result.name}`}]);
@@ -68,7 +55,18 @@ class BotHelper {
 
             case 'Темне':
                 return new Promise((resolve, reject) => {
-                    const condition = {isDark: true};
+                    const condition = {type: 'beer',isDark: true};
+                    db.selectOne(condition)
+                        .then(result => {
+                            console.log([{text: `Спробуй ${result.name}`}]);
+                            resolve ([{text: `Спробуй ${result.name}  ${result.description}`}])
+                        })
+                        .catch(err => reject(err));
+                });
+
+            case 'Ель':
+                return new Promise((resolve, reject) => {
+                    const condition = {type: 'ale'};
                     db.selectOne(condition)
                         .then(result => {
                             console.log([{text: `Спробуй ${result.name}`}]);
