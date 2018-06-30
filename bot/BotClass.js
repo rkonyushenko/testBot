@@ -62,7 +62,7 @@ class BotHelper {
                     db.selectOne(condition)
                         .then(result => {
                             console.log([{text: `Спробуй ${result.name}`}]);
-                            resolve ([{text: `Спробуй ${JSON.stringify(result.name)} \n ${JSON.stringify(result.description)}`}])
+                            resolve ([{text: `Спробуй ${result.name} \n ${result.description}`}])
                         })
                         .catch(err => reject(err));
                 });
