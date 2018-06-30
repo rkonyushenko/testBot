@@ -16,10 +16,6 @@ class MongoDB {
                     console.log(result);
                     return result
                 })
-                    .then(result => {
-                        console.log("then " + result);
-                        resolve(result)
-                    })
             })
         })
     }
