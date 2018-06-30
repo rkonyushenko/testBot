@@ -25,17 +25,12 @@ bot.on('message', msg => {
     const {chat: {username}} = msg;
     const {text} = msg;
     console.log(JSON.stringify(msg));
-    if (text === '/start'){
+    if (text === '/start') {
         bot.sendMessage(id, 'Привіт, я алкобот, я ще тупий, і мою базу буде піднімать Влад, але ти можеш мені писать.)');
         bot.sendMessage(id, 'Може ти хочеш щось затестить?', openKeyboard);
     } else {
-       setTimeout(() => {
-           bot.sendMessage(id, botHelper.checkButtonPressed(text)[0]['text'], botHelper.checkButtonPressed(text)[1])
-       }, 500)
+        bot.sendMessage(id, botHelper.checkButtonPressed(text)[0]['text'], botHelper.checkButtonPressed(text)[1])
     }
-
-
-
 
 
 });
