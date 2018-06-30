@@ -1,4 +1,4 @@
-var MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 
 const uri = `mongodb://lemo:qwerty123@ds161610.mlab.com:61610/botdb_alcho`;
 
