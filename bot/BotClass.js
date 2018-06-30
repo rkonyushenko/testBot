@@ -42,11 +42,12 @@ class BotHelper {
 
             case 'Світле':
                 return new Promise((resolve, reject) => {
-                    db.selectOne()
+                    const condition = {isLight: true};
+                    db.selectOne(condition)
                         .then(data => {
                             console.log('before return');
                             console.log(JSON.stringify(data));
-                            // resolve ([{text: JSON.stringify(data)}])
+                            resolve ([{text: JSON.stringify(data)}])
                         })
                         .catch(error => reject(error));
                 });
