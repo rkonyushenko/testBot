@@ -42,6 +42,10 @@ bot.on('message', msg => {
 const Emitter = require('events');
 const eventEmitter = new Emitter();
 
+eventEmitter.on('next', function(){
+    console.log('this is next event and it`s work')
+})
+
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     console.log(JSON.stringify(callbackQuery))
     eventEmitter.emit(callbackQuery.data);
