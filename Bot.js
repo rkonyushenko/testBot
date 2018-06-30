@@ -43,11 +43,14 @@ bot.on('message', msg => {
 const Emitter = require('events');
 const eventEmitter = new Emitter();
 
-eventEmitter.on('next', function(){
-    db.selectNext({type: 'ale'}, true)
-        .then(result => {
-            console.log(JSON.stringify(result))
-        })
+eventEmitter.on('next', () => {
+    return new Promise((resolve, reject) => {
+        db.selectNext({type: 'ale'}, true)
+            .then(result => {
+                resolve(result)
+            })
+            .catch(err => reject(err))
+    })
 });
 
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
