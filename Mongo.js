@@ -13,6 +13,7 @@ class MongoDB {
                 const collection = client.db("botdb_alcho").collection('alchoCollection');
                 collection.findOne(condition)
                     .then(result => {
+                        console.log(JSON.stringify(result))
                         resolve(result)
                     })
                     .catch(err => reject(err))
