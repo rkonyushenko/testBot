@@ -16,7 +16,7 @@ class MongoDB {
                     if (err) throw err;
                     data = result;
                 });
-                console.log(data)
+                console.log(JSON.stringify(data))
             });
             resolve(data)
         })
