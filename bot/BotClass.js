@@ -16,7 +16,8 @@ class BotHelper {
                 return [{text: 'Прощай'}];
 
             case 'Пиво':
-                return [{
+                return [{text: 'мммм, півоосік))'},
+                    {
                     reply_markup: {
                         keyboard: [
                             ["Світле", "Темне"],
@@ -27,7 +28,7 @@ class BotHelper {
                 }];
 
             case 'Ель':
-                return [{
+                return [{text: 'Ель, не погано'},{
                     reply_markup: {
                         keyboard: [
                             ["Медовий", "Хуйовий"],
