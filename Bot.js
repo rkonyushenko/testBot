@@ -41,8 +41,7 @@ eventEmitter.on('next', () => {
     return new Promise((resolve, reject) => {
         db.selectNext({type: 'ale'}, true)
             .then(result => {
-                bot.editMessageText(chatId, JSON.stringify(result[0]['text'], result[1]))
-                resolve(result)
+                bot.editMessageText(JSON.stringify(result[0]['text']))
             })
             .catch(err => reject(err))
     })
