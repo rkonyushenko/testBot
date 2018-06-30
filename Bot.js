@@ -20,12 +20,18 @@ bot.setWebHook(`${config.url}/bot`);
 
 bot.on('message', msg => {
     const {chat: {id}} = msg;
+    const {chat: {username}} = msg;
     console.log(JSON.stringify(msg));
-    if (msg.chat.id === 418234096){
+    if (username === 'K_Sergey_V'){
         bot.sendMessage(id, `${msg.from.first_name}, давай загранку робить, заїбав!!!`);
         bot.sendMessage(id, `Півос будеш?`, openKeyboard);
-    } else {
+    } else if (username === 'V_Yarosh') {
         bot.sendMessage(id, `${msg.from.first_name}, хвате катать в доту, давай загранку роби!`);
+    } else {
+        bot.sendMessage(id, `Півос?`)
+        if (msg.text === 'Нахуй пішов') {
+            bot.sendSticker(id, 'CAADAgADOAADX8p-CzLiVfbJsCagAg')
+        }
     }
 
 });
