@@ -31,8 +31,10 @@ bot.on('message', msg => {
     const {chat: {username}} = msg;
     const {text} = msg;
     console.log(JSON.stringify(msg));
-    Emitter.on('/start', () => {
+    if (text === '/start'){
         bot.sendMessage(id, 'Привіт, я алкобот, я ще тупий, і мою базу буде піднімать Влад, але ти можеш мені писать.)')
         bot.sendMessage(id, 'Може ти хочеш щось затестить?', openKeyboard)
-    })
+    } else  {
+
+    }
 });
