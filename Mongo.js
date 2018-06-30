@@ -21,6 +21,27 @@ class MongoDB {
 
         })
     }
+
+    selectNext(condition, isNext = true) {
+        return new Promise((resolve, reject) => {
+            let index = 0;
+            if (isNext){
+                index++
+            } else {
+                index
+            }
+            MongoClient.connect(uri,  (err, client) => {
+                if (err) throw err;
+                const collection = client.db("botdb_alcho").collection('alchoCollection');
+                collection.find(condition).toArray((err, result) => {
+                    if (err) throw err;
+                    console.log(result[index]);
+                    resolve(result[index])
+                });
+            });
+
+        })
+    }
 }
 
 const mongo = new MongoDB();

@@ -1,6 +1,7 @@
 const Server = require('./server');
 const config = require('./config.json');
 const botHelper = require('./bot/BotClass');
+const db = require('./Mongo')
 
 const EventEmitter = require('events');
 const TelegramBot = require('node-telegram-bot-api');
@@ -43,11 +44,14 @@ const Emitter = require('events');
 const eventEmitter = new Emitter();
 
 eventEmitter.on('next', function(){
-    console.log('this is next event and it`s work')
-})
+    db.selectNext({type: 'ale'}, true)
+        .then(result => {
+            console.log(JSON.stringify(result))
+        })
+});
 
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
-    console.log(JSON.stringify(callbackQuery))
+    console.log(JSON.stringify(callbackQuery));
     eventEmitter.emit(callbackQuery.data);
 
 });
