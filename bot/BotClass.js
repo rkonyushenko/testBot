@@ -18,7 +18,15 @@ class BotHelper {
                 });
 
             case 'Ні, давай без мене':
-                return [{text: 'Прощай'}];
+                return [{text: 'Прощай'}, {
+                    reply_markup: {
+                        keyboard: [
+                            ["Прощай"],
+                        ],
+                        one_time_keyboard: true,
+                        resize_keyboard: true
+                    }
+                }];
 
             case 'Пиво':
                 return new Promise((resolve, reject) => {
@@ -54,7 +62,7 @@ class BotHelper {
                     db.selectOne(condition)
                         .then(result => {
                             console.log([{text: `Спробуй ${result.name}`}]);
-                            return ([{text: `Спробуй ${result.name}`}])
+                            resolve ([{text: `Спробуй ${result.name}`}])
                         })
                         .catch(err => reject(err));
                 });
