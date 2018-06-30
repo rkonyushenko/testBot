@@ -7,7 +7,7 @@ const TOKEN = config.token;
 const openKeyboard = {
     reply_markup: {
         keyboard: [
-            ["Test", "Test_2"],
+            ["Да, буду", "Нахуй пішов"],
         ],
         one_time_keyboard: true,
         resize_keyboard: true,
@@ -23,6 +23,7 @@ bot.on('message', msg => {
     console.log(JSON.stringify(msg));
     if (msg.chat.id === 418234096){
         bot.sendMessage(id, `${msg.from.first_name}, давай загранку робить, заїбав!!!`);
+        bot.sendMessage(id, `Півос будеш?`, openKeyboard);
     } else {
         bot.sendMessage(id, `${msg.from.first_name}, хвате катать в доту, давай загранку роби!`);
     }
