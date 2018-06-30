@@ -1,3 +1,5 @@
+const db = require('./../Mongo');
+
 class BotHelper {
 
     checkButtonPressed(btn) {
@@ -37,6 +39,9 @@ class BotHelper {
                         resize_keyboard: true
                     }
                 }];
+
+            case 'Світле':
+                return [{text: `${db.selectOne()}`}]
 
             default:
                 return [{text: 'оххх, давай почнемо з початку'}, {

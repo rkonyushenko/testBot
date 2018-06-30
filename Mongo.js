@@ -1,18 +1,23 @@
 const MongoClient = require('mongodb').MongoClient;
+const json = require('./bot/dataDb.json')
 
 const uri = `mongodb://lemo:qwerty123@ds161610.mlab.com:61610/botdb_alcho`;
 
 class MongoDB {
 
-    getConnection() {
-            MongoClient.connect(uri, function(err, client) {
+
+    selectOne(condition) {
+        return new Promise((resolve, reject) => {
+            MongoClient.connect(uri, function (err, client) {
                 if (err) throw err;
-               const collection = client.db("botdb_alcho").collection('alchoCollection');
-               collection.insert({key: 'value'})
-               console.log(collection)
-
-            });
-
+                const collection = client.db("botdb_alcho").collection('alchoCollection');
+                collection.findOne(condition)
+                    .then(result => {
+                        console.log(JSON.stringify(result))
+                    })
+                    .catch(err => reject(err))
+            })
+        })
     }
 }
 
