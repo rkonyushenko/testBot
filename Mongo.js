@@ -35,7 +35,11 @@ class MongoDB {
                 collection.find(condition).toArray((err, result) => {
                     if (err) throw err;
                     console.log(result[index]);
-                    resolve(result[index])
+                    resolve([{text: result[index]}, {{reply_markup: {
+                            inline_keyboard: [
+                                [{text: 'Next', callback_data: 'next'}]
+                            ]
+                        }}])
                 });
             });
 
