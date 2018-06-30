@@ -25,7 +25,7 @@ bot.setWebHook(`${config.url}/bot`);
 let chatId = '';
 
 bot.on('message', msg => {
-    const {chat: {chatId}} = msg;
+    const {chat: {id}} = msg;
     chatId = id;
     const {chat: {username}} = msg;
     const {text} = msg;
