@@ -14,7 +14,7 @@ class MongoDB {
                 collection.find(condition).toArray( (err, result) => {
                     if (err) throw err;
                     console.log(result);
-                    return result
+                    resolve(result);
                 })
             })
         })
