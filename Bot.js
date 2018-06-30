@@ -49,5 +49,5 @@ eventEmitter.on('next', function(){
 bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     console.log(JSON.stringify(callbackQuery))
     eventEmitter.emit(callbackQuery.data);
-    bot.answerCallbackQuery(callbackQuery.id, "Hi", false);
+
 });
