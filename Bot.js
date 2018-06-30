@@ -22,18 +22,11 @@ bot.on('message', msg => {
     const {chat: {id}} = msg;
     const {chat: {username}} = msg;
     console.log(JSON.stringify(msg));
-    if (username === 'K_Sergey_V'){
+    if (username === 'K_Sergey_V' || username === 'llemo'){
         bot.sendMessage(id, `${msg.from.first_name}, давай загранку робить, заїбав!!!`);
-        bot.sendMessage(id, `Півос будеш?`, openKeyboard);
-        if (msg.text === 'Нахуй пішов') {
-            bot.sendSticker(id, 'CAADAgADOAADX8p-CzLiVfbJsCagAg')
-        } else {
-            bot.sendSticker(id,'CAADBAADygIAAlI5kwY1OpJy7RHINwI')
-            bot.sendMessage(id,'Щас Влад базу підтягне, жди...)))')
-        }
     } else if (username === 'V_Yarosh') {
         bot.sendMessage(id, `${msg.from.first_name}, хвате катать в доту, давай загранку роби!`);
-    } else {
+    }
         bot.sendMessage(id, `Півос?`, openKeyboard);
         if (msg.text === 'Нахуй пішов') {
             bot.sendSticker(id, 'CAADAgADOAADX8p-CzLiVfbJsCagAg')
@@ -41,6 +34,5 @@ bot.on('message', msg => {
             bot.sendSticker(id,'CAADBAADygIAAlI5kwY1OpJy7RHINwI')
             bot.sendMessage(id,'Щас Влад базу підтягне, жди...)))')
         }
-    }
 
 });
