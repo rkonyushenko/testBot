@@ -42,7 +42,7 @@ class BotHelper {
 
             case 'Світле':
                     const condition = {isLight: true};
-                    return {text: db.selectOne(condition).toString()};
+                    return [{text: db.selectOne(condition).toString()}];
 
             default:
                 return [{text: 'оххх, давай почнемо з початку'}, {
