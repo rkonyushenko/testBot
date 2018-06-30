@@ -11,9 +11,9 @@ class MongoDB {
             MongoClient.connect(uri, function (err, client) {
                 if (err) throw err;
                 const collection = client.db("botdb_alcho").collection('alchoCollection');
-                collection.findOne(condition)
+                collection.find(condition)
                     .then(result => {
-                        console.log(JSON.stringify(result))
+                        console.log(JSON.stringify(result));
                         resolve(result)
                     })
                     .catch(err => reject(err))

@@ -54,7 +54,6 @@ class BotHelper {
                         }
                     }])
                 });
-                break;
 
             case 'Світле':
                 return new Promise((resolve, reject) => {
@@ -62,7 +61,7 @@ class BotHelper {
                     db.selectOne(condition)
                         .then(result => {
                             console.log([{text: `Спробуй ${result.name}`}]);
-                            resolve ([{text: `Спробуй ${result.name}  ${result.description.replace(/\\n/g, '')}`}])
+                            resolve ([{text: `Спробуй ${result.name}  ${result.description}`}])
                         })
                         .catch(err => reject(err));
                 });
