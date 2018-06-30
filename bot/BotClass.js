@@ -42,7 +42,11 @@ class BotHelper {
 
             case 'Світле':
                     const condition = {isLight: true};
-                    return [{text: JSON.stringify(db.selectOne(condition))}];
+                    db.selectOne(condition)
+                        .then(result => {
+                            return [{text: JSON.stringify(result) }]
+                        });
+                    break;
 
             default:
                 return [{text: 'оххх, давай почнемо з початку'}, {
