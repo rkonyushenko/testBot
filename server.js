@@ -15,7 +15,7 @@ class Server {
         });
 
         server.get('/bot/get', (req, res) => {
-            res.send("Works");
+            res.send("Works v.1.0.1");
         });
 
         server.post('/bot', (req, res) => {
