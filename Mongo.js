@@ -11,12 +11,15 @@ class MongoDB {
             MongoClient.connect(uri, function (err, client) {
                 if (err) throw err;
                 const collection = client.db("botdb_alcho").collection('alchoCollection');
-                collection.findOne(condition)
-                    .then(result => {
-                        console.log(JSON.stringify(result));
-                        resolve(result)
-                    })
-                    .catch(err => reject(err))
+                collection.find(condition).toArray( (err, result) => {
+                    if (err) throw err;
+
+                });
+                     // .then(result => {
+                     //     console.log(JSON.stringify(result));
+                     //     resolve(result)
+                     // })
+                     // .catch(err => reject(err))
             })
         })
     }

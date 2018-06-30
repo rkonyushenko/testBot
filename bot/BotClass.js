@@ -66,6 +66,17 @@ class BotHelper {
                         .catch(err => reject(err));
                 });
 
+            case 'Темне':
+                return new Promise((resolve, reject) => {
+                    const condition = {isDark: true};
+                    db.selectOne(condition)
+                        .then(result => {
+                            console.log([{text: `Спробуй ${result.name}`}]);
+                            resolve ([{text: `Спробуй ${result.name}  ${result.description}`}])
+                        })
+                        .catch(err => reject(err));
+                });
+
             default:
                 return new Promise((resolve, reject) => {
                     resolve([{text: 'оххх, давай почнемо з початку'}, {
