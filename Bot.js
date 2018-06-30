@@ -29,7 +29,14 @@ bot.on('message', msg => {
         bot.sendMessage(id, 'Привіт, я алкобот, я ще тупий, і мою базу буде піднімать Влад, але ти можеш мені писать.)');
         bot.sendMessage(id, 'Може ти хочеш щось затестить?', openKeyboard);
     } else {
-        bot.sendMessage(id, botHelper.checkButtonPressed(text)[0]['text'], botHelper.checkButtonPressed(text)[1])
+        return new Promise((resolve, reject) => {
+            botHelper.checkButtonPressed(text)
+                .then(result => {
+                    bot.sendMessage(id, result[0]['text'], result[1]);
+                })
+                .catch(err => reject(err))
+
+        })
     }
 
 
