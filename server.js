@@ -16,7 +16,7 @@ class Server {
 
         server.get('/bot/get', (req, res) => {
             res.send("Works");
-        })
+        });
 
         server.post('/bot', (req, res) => {
             console.log(JSON.stringify(req.body));
