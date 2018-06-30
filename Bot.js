@@ -68,7 +68,7 @@ bot.on('message', msg => {
         bot.sendMessage(id, 'Класно, вибирай', keys)
     });
 
-    eventEmitter.on('Давай', () => {
+    eventEmitter.on('Ні, давай без мене', () => {
         const keys = {
             reply_markup: {
                 keyboard: [
