@@ -45,8 +45,8 @@ class BotHelper {
                     db.selectOne(condition)
                         .then(data => {
                             console.log('before return');
-                            console.log(JSON.stringify(data));
-                          return [{text: JSON.stringify(data['name'])}]
+                            console.log(JSON.stringify(data.name));
+                          return [{text: JSON.stringify(data.name)}]
                         });
 
             default:
