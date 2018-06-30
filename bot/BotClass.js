@@ -41,14 +41,15 @@ class BotHelper {
                 }];
 
             case 'Світле':
-                db.selectOne()
-                    .then(data => {
-                        console.log('before return');
-                        console.log(JSON.stringify(data));
-                        return [{text: JSON.stringify(data)}]
-                    })
-                    .catch(error => console.log(error))
-                break;
+                return new Promise((resolve, reject) => {
+                    db.selectOne()
+                        .then(data => {
+                            console.log('before return');
+                            console.log(JSON.stringify(data));
+                            resolve ([{text: JSON.stringify(data)}])
+                        })
+                        .catch(error => reject(error));
+                });
 
             default:
                 return [{text: 'оххх, давай почнемо з початку'}, {
