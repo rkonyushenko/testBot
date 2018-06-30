@@ -1,5 +1,9 @@
 const db = require('./../Mongo');
 
+const Emitter = require('events');
+
+const eventEmitter = new Emitter();
+
 class BotHelper {
 
     checkButtonPressed(btn) {
@@ -69,10 +73,15 @@ class BotHelper {
                     const condition = {type: 'ale'};
                     db.selectOne(condition)
                         .then(result => {
+
+                            eventEmitter.on('next', () => {
+                                console.log('next event')
+                            })
+
                             console.log([{text: `Спробуй ${result.name}`}]);
                             resolve ([{text: `Спробуй ${result.name}  ${result.description}`}, {reply_markup: {
                                     inline_keyboard: [
-                                        [{text: 'Next', callback_data: 'my_fancy_event_3'}]
+                                        [{text: 'Next', callback_data: 'next'}]
                                     ]
                                 }}])
                         })
