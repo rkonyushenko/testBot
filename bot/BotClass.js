@@ -46,7 +46,7 @@ class BotHelper {
                         .then(data => {
                             console.log('before return');
                             console.log(JSON.stringify(data));
-                            resolve ([{text: JSON.stringify(data)}])
+                            // resolve ([{text: JSON.stringify(data)}])
                         })
                         .catch(error => reject(error));
                 });
